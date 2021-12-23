@@ -1,7 +1,14 @@
-import { useEffect, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import ReactModal from "react-modal";
+import { RequestCloseParam } from "../../types";
 
-const Modal = ({ isOpen, setIsOpen, children }) => {
+interface ModalProps {
+  isOpen: boolean;
+  setIsOpen: (e: RequestCloseParam) => void;
+  children: ReactNode;
+}
+
+const Modal = ({ isOpen, setIsOpen, children }: ModalProps) => {
   const [modalStatus, setModalStatus] = useState(isOpen);
 
   useEffect(() => {
